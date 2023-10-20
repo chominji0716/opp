@@ -3,20 +3,30 @@
 
 using namespace std;
 
+void savemultiple(int* arr) {
+    for (int i = 1000; i <= 5000; i += 1000) {
+        *arr = i * 5;
+        arr++;
+    }
+}
+
+void savesquare(float* arr) {
+    for (float i = -0.5; i < 1.0; i += 0.5) {
+        *arr = i * i;
+        arr++;
+    }
+}
+
 void All(ofstream& file) {
     int Value1 = 1234;
+    int intArray[5];
+    savemultiple(intArray);
+    float floatArray[3];
+    savesquare(floatArray);
+
     file.write((char*)(&Value1), sizeof(int));
-
-    for (int i = 1000; i <= 5000; i += 1000) {
-        int Value2 = i * 5;
-        file.write((char*)(&Value2), sizeof(int));
-    }
-
-
-    for (float i = -0.5; i < 1.5; i += 0.5) {
-        float Value3 = i*i;
-        file.write(( char*)(&Value3), sizeof(float));
-    }
+    file.write((char*)(&intArray), sizeof(intArray));
+    file.write((char*)(&floatArray), sizeof(floatArray));
 }
 
 int main() {
