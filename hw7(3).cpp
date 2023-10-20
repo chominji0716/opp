@@ -30,7 +30,9 @@ int main() {
     float floatArray[3];
     savesquare(floatArray);
 
-    file.write((char*)(&Value1, &intArray, &floatArray), sizeof(int));
+    file.write((char*)(&Value1), sizeof(int));
+    file.write((char*)(&intArray), sizeof(intArray));
+    file.write((char*)(&floatArray), sizeof(floatArray));
 
     file.close();
 
