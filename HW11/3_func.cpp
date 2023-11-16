@@ -1,4 +1,4 @@
-#include "HW11_3.h"
+#include "3_class.h"
 void LoL::f0() {
 	dd.open(filename , ios::binary | ios::out);
 	dd.write((char*)&N1, sizeof(int));
