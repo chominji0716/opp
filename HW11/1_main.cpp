@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "HW11class.h"
+#include "1_class.h"
 using namespace std;
 int main() {
 	LoL l1, l2, l3, l4;
