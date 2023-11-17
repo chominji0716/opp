@@ -20,11 +20,13 @@ void readFromFile(char* filename) {
     inf.read((char*)&x, sizeof(float));
     inf.read((char*)&dx, sizeof(float));
     inf.read((char*)&m, sizeof(int));
-    inf.read((char*)&Sum, sizeof(int));
+
+    float* result2 = new float[N2-N1+1];
+    inf.read((char*)result2, (N2 - N1 + 1)*sizeof(float));
 
     // 메모리 할당과 결과값 읽기
-    float* result = new float[m];
-    inf.read((char*)result, m * sizeof(float));
+    float* result1 = new float[m];
+    inf.read((char*)result1, m * sizeof(float));
 
     // 읽은 데이터를 출력
     cout << "N1: " << N1 << endl;
@@ -34,12 +36,15 @@ void readFromFile(char* filename) {
     cout << "x: " << x << endl;
     cout << "dx: " << dx << endl;
     cout << "m: " << m << endl;
-    cout << "Sum: " << Sum << endl;
+    for (int i = 0; i < N2 - N1 + 1; i++) {
+        cout << "Sum[" << i << "]: " << result2[i] << endl;
+    }
     for (int i = 0; i < m; i++) {
-        cout << "result[" << i << "]: " << result[i] << endl;
+        cout << "result[" << i << "]: " << result1[i] << endl;
     }
 
-    delete[] result; // 할당된 메모리를 해제
+    delete[] result1;
+    delete[] result2;// 할당된 메모리를 해제
 }
 
 int main() {
