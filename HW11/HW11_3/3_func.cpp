@@ -1,10 +1,12 @@
 #include "3_class.h"
+
 void LoL::f0() {
-	dd.open(filename , ios::binary | ios::out);
+	dd.open(filename, ios::binary | ios::out);
 	dd.write((char*)&N1, sizeof(int));
 	dd.write((char*)&N2, sizeof(int));
 	dd.write((char*)&a, sizeof(float));
 	dd.write((char*)&b, sizeof(float));
+	dd.write((char*)&x0, sizeof(float));
 	dd.write((char*)&dx, sizeof(float));
 	dd.write((char*)&m, sizeof(int));
 }
